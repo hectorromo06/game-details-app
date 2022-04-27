@@ -1,1 +1,1 @@
-# game-details-app
+# Game Details App
