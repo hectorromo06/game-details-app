@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <nav class="uk-navbar-container uk-flex-inline">
+    <nav class="uk-navbar-container">
       <h1 class="uk-text-left">Game Details App</h1>
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
@@ -22,6 +22,22 @@
         </ul>
       </div>
     </nav>
+    <section>
+      <div id="search">
+        <form class="uk-form-horizontal">
+          <label for="game-title" class="uk-form-label">Search:</label>
+          <input
+            type="text"
+            placeholder="Game Title"
+            name="game-title"
+            id="game-title"
+            class="uk-input"
+          />
+          <button type="submit" class="uk-button">Submit</button>
+        </form>
+      </div>
+      <div id="results"></div>
+    </section>
     <script href="./assets/js/script.js"></script>
   </body>
 </html>
