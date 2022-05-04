@@ -11,8 +11,33 @@
 </head>
 
 <body>
-
-    <script href="./assets/js/script.js"></script>
+        <nav class="uk-navbar-container">
+          <h1 class="uk-text-left">Game Details App</h1>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+              <li class="uk-active"><a href="">Popular Games</a></li>
+              <li class="uk-active"><a href="">Recent Searches</a></li>
+            </ul>
+          </div>
+        </nav>
+        <section>
+          <div id="search">
+            <form id="game-form" class="uk-form-horizontal">
+              <label for="game-title" class="uk-form-label">Search:</label>
+              <input
+                type="text"
+                placeholder="Game Title"
+                name="game-title"
+                id="game-title"
+                class="uk-input"
+              />
+              <button type="submit" class="uk-button">Submit</button>
+            </form>
+          </div>
+          <div id="results"></div>
+        </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
