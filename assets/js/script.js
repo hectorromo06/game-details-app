@@ -1,7 +1,7 @@
 console.log("js test");
 
 //store value of input 
-let game = $("#searchTerm").val();
+let playerName = $("#searchTerm").val();
 
 $("#searchTerm").keypress(function(event){
   if (event.which === 13) {
@@ -13,51 +13,10 @@ $("#searchTerm").keypress(function(event){
 $("#searchBtn").on("click", function() {
 
   // get the input from the user
-  game = $("#searchTerm").val();
+  playerName = $("#searchTerm").val();
 
   // clears input box
   $("#searchTerm").val("");
-
-  // Full API call to SportsScore: Get a list of teams belonging to a specified sport. 
-  //Returns a list of teams
-  const settings = {
-	  "async": true,
-  	"crossDomain": true,
-	  "url": "https://sportscore1.p.rapidapi.com/sports/1/teams?page=1",
-	  "method": "GET",
-  	"headers": {
-  		"X-RapidAPI-Host": "sportscore1.p.rapidapi.com",
-  		"X-RapidAPI-Key": "92d5a261cbmsh2670c43e09e3d07p15f894jsn89c9d2e082a5"
-	  }
-  };
-
-  $.ajax(settings).done(function (response) {
-	  console.log(response);
-  });
- 
-  function getEvents () {
-    // API call to SeatGeek
-    const settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://seatgeek-seatgeekcom.p.rapidapi.com/events",
-      "method": "GET",
-      "headers": {
-        "X-RapidAPI-Host": "seatgeek-seatgeekcom.p.rapidapi.com",
-        "X-RapidAPI-Key": "92d5a261cbmsh2670c43e09e3d07p15f894jsn89c9d2e082a5"
-      }
-    };
-    
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-    });
-
-    let results = response.list;
-    console.log(results);
-
-  }
-});
-
 
 
 
@@ -90,7 +49,7 @@ $("#searchBtn").on("click", function() {
 // }
 
 // function searchButton() {
-//   gameTitle = $("input").val().trim();
+//   playerName = $("input").val().trim();
 
 //   // Buttons are created as the user enters more games
 //   var gameList = $("<button>");
