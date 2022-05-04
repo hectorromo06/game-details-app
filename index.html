@@ -7,28 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/css/uikit.min.css" />
-  <title>Game Details App</title>
+  <title>Player Details App</title>
 </head>
 
 <body>
-  <nav class="uk-navbar-container">
-    <h1 class="uk-text-left">Game Details App</h1>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active"><a href="">Popular Games</a></li>
+  <nav class="uk-navbar">
+    <div class="uk-flex">
+      <h1 class="uk-flex-left">Player Details App ⚾️ </h1>
+      <ul class="uk-navbar-nav uk-flex-right">
         <li class="uk-active"><a href="">Recent Searches</a></li>
       </ul>
     </div>
   </nav>
-  <section>
-    <div id="search">
-      <form class="uk-form-horizontal">
-        <label for="game-title" class="uk-form-label">Search:</label>
-        <input type="text" placeholder="Game Title" name="game-title" id="game-title" class="uk-input" />
-        <button type="submit" class="uk-button" id="submit-btn">Submit</button>
+
+  <section class="uk-flex uk-flex-column">
+    <div id="search" class="uk-flex-center">
+      <form class="uk-form-horizontal uk-search uk-search-default">
+        <label for="player-name" class="uk-form-label">Search:</label>
+        <input type="search" placeholder="Player Name" name="player-name" id="player-name" class="uk-search-input" />
+        <button type="submit" class="uk-button uk-button-text" id="submit-btn">Search</button>
       </form>
     </div>
-    <div id="results"></div>
+
+    <div id="results" class="uk-flex-center">
+      <h2 id="player"></h2>
+      <ul>
+        <li>Team: <span id="team"></span></li>
+        <li>Height: <span id="height"></span> ft</li>
+        <li>Weight: <span id="weight"></span> lbs</li>
+        <li>Birthday: <span id="birthdate"></span></li>
+        <!-- <li>Jersey Number: <span id="jersey-number"></span></li> -->
+      </ul>
+
+      <h2>Team Youtube videos</h2>
+      <ul id="youtube-vids">
+      </ul>
+    </div>
   </section>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="./assets/js/script.js"></script>

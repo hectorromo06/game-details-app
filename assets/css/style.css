@@ -1,0 +1,14 @@
+nav {
+    background-color: rgb(120, 159, 129);
+    margin: 0 auto;
+} 
+
+nav div h1 {
+    margin-bottom: 0px;
+    color: white;
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+}
