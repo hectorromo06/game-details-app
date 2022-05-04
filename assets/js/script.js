@@ -6,6 +6,7 @@ var heightEl = document.querySelector('#height');
 var weightEl = document.querySelector('#weight');
 var birthdayEl = document.querySelector('#birthdate');
 var youtubeEl = document.querySelector('#youtube-vids');
+var historyEl = document.querySelector('#history');
 // var jerseryNumEl = document.querySelector('#jersey-number');
 
 var recentSearches = [];
@@ -125,4 +126,22 @@ function youtubeSearch(teamName) {
             youtubeEl.appendChild(liEl);
         }
     });
+
 }
+
+function history() {
+      var temp = localStorage.getItem('recentSearches');
+      // if localStorage does exist print buttons
+      if (temp != null) {
+        recentSearches = JSON.parse(temp);
+        for (var i = 0; i < recentSearches.length; i++) {
+            var liEl = document.createElement("li");
+            liEl.textContent = recentSearches[i].player;
+            historyEl.appendChild(liEl);
+        }
+          
+
+      }
+    }
+    history();
+  
