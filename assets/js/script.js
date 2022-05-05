@@ -6,10 +6,7 @@ var heightEl = document.querySelector('#height');
 var weightEl = document.querySelector('#weight');
 var birthdayEl = document.querySelector('#birthdate');
 var youtubeEl = document.querySelector('#youtube-vids');
-var historyEl = document.querySelector('#history');
 // var jerseryNumEl = document.querySelector('#jersey-number');
-
-var recentSearches = [];
 
 $('#submit-btn').click(function (event) {
     event.preventDefault();
@@ -17,33 +14,7 @@ $('#submit-btn').click(function (event) {
     var playerName = event.target.parentElement[0].value;
     playerName = encodeURIComponent(playerName.trim());
 
-    // checks if localStorage exists
-    var temp = localStorage.getItem('recentSearches');
-    var exists = false;
-  
-    // if localStorage does exist, make sure player is not duplicated
-    if (temp != null) {
-      recentSearches = JSON.parse(temp);
-        for (var i = 0; i < recentSearches.length; i++) {
-            if (recentSearches[i].player == playerName) {
-                exists = true;
-                break;
-            } else {
-                exists = false;
-            }
-        }
-    }
-
-    // if player doesn't exist in array, adds it, creates localStorage
-    if (exists == false) {
-      var occurence = {
-          player: playerName
-      }
-      recentSearches.push(occurence);
-      localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-  } else {
-  }
-  apiCall(playerName);
+    apiCall(playerName);
 });
 
 function apiCall(playerName) {
@@ -126,22 +97,4 @@ function youtubeSearch(teamName) {
             youtubeEl.appendChild(liEl);
         }
     });
-
 }
-
-function history() {
-      var temp = localStorage.getItem('recentSearches');
-      // if localStorage does exist print buttons
-      if (temp != null) {
-        recentSearches = JSON.parse(temp);
-        for (var i = 0; i < recentSearches.length; i++) {
-            var liEl = document.createElement("li");
-            liEl.textContent = recentSearches[i].player;
-            historyEl.appendChild(liEl);
-        }
-          
-
-      }
-    }
-    history();
-  
