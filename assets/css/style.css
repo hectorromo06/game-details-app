@@ -14,7 +14,16 @@ section {
     margin: 0 auto;
 }
 
+ul {
+    list-style: none;
+}
+
 #search form {
     margin: 0 auto;
     margin-top: 20%;
+}
+
+#player-image {
+    max-width: 20%;
+    height: 20%;
 }
