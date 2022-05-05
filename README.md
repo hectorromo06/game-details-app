@@ -3,5 +3,5 @@
 ## Authors
 - Analiza Boehning
 - Alina Velazquez
-- Javier Morales Ruiz
 - Hector Romo
+- Javier Morales Ruiz
