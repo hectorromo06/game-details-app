@@ -7,23 +7,24 @@ var weightEl = document.querySelector('#weight');
 var birthdayEl = document.querySelector('#birthdate');
 var youtubeEl = document.querySelector('#youtube-vids');
 var historyEl = document.querySelector('#history');
-// var jerseryNumEl = document.querySelector('#jersey-number');
+var resultsEl = document.querySelector('#results');
 
 var recentSearches = [];
 
 $('#submit-btn').click(function (event) {
     event.preventDefault();
 
+    resultsEl.style.visibility = 'visible';
+
     var playerName = event.target.parentElement[0].value;
-    playerName = encodeURIComponent(playerName.trim());
 
     // checks if localStorage exists
     var temp = localStorage.getItem('recentSearches');
     var exists = false;
-  
+
     // if localStorage does exist, make sure player is not duplicated
     if (temp != null) {
-      recentSearches = JSON.parse(temp);
+        recentSearches = JSON.parse(temp);
         for (var i = 0; i < recentSearches.length; i++) {
             if (recentSearches[i].player == playerName) {
                 exists = true;
@@ -36,17 +37,19 @@ $('#submit-btn').click(function (event) {
 
     // if player doesn't exist in array, adds it, creates localStorage
     if (exists == false) {
-      var occurence = {
-          player: playerName
-      }
-      recentSearches.push(occurence);
-      localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
-  } else {
-  }
-  apiCall(playerName);
+        var occurence = {
+            player: playerName
+        }
+        recentSearches.push(occurence);
+        localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+    } else {}
+
+    apiCall(playerName);
 });
 
 function apiCall(playerName) {
+    playerName = encodeURIComponent(playerName.trim());
+
     const settings = {
         "async": true,
         "crossDomain": true,
@@ -65,7 +68,7 @@ function apiCall(playerName) {
         var teamName = response.search_player_all.queryResults.row.team_full;
         var height = response.search_player_all.queryResults.row.height_feet + "' " + response.search_player_all.queryResults.row.height_inches;
         var weight = response.search_player_all.queryResults.row.weight;
-        var birthday = response.search_player_all.queryResults.row.birth_date;
+        var birthday = response.search_player_all.queryResults.row.birth_date.slice(0, 10);
         // var jerseyNum = response.
 
         playerEl.textContent = player;
@@ -95,53 +98,79 @@ function youtubeSearch(teamName) {
         console.log(response);
 
         for (var i = 0; i < response.videos.length; i++) {
-            var liEl = document.createElement('li');
-            var thumbnailEl = document.createElement('img');
-            var titleEl = document.createElement('a');
-            var descEl = document.createElement('p');
-            var lengthEl = document.createElement('p');
 
+            var divParentEl = document.createElement('div');
+            divParentEl.classList.add('uk-card', 'uk-card-default', 'uk-grid-collapse', 'uk-child-width-1-2@s', 'uk-margin');
+            divParentEl.setAttribute('uk-grid', '');
+
+            var divThumbnailEl = document.createElement('div');
+            divThumbnailEl.classList.add('uk-card-media-left', 'uk-cover-container');
+
+            var imgEl = document.createElement('img');
             var src = response.videos[i].thumbnails[0].url;
-            thumbnailEl.setAttribute('src', src);
+            imgEl.setAttribute('src', src);
+            imgEl.setAttribute('alt', '');
 
+            divThumbnailEl.appendChild(imgEl);
+
+            divParentEl.appendChild(divThumbnailEl);
+
+            var cardBodyEl = document.createElement('div');
+            cardBodyEl.classList.add('uk-card-body', 'uk-align-right');
+
+            var h3El = document.createElement('h3');
+            h3El.classList.add('uk-card-title');
             var title = response.videos[i].title;
-            titleEl.textContent = title;
-            titleEl.classList.add('uk-button', 'uk-button-default');
-            var url = response.videos[i].video_id;
-            titleEl.setAttribute('href', url);
+            h3El.textContent = title;
 
-
+            var descEl = document.createElement('p');
             var desc = response.videos[i].description;
             descEl.textContent = desc;
-            thumbnailEl.setAttribute('alt', desc)
 
+            var lengEl = document.createElement('p');
             var leng = response.videos[i].video_length;
-            lengthEl.textContent = leng;
+            lengEl.textContent = leng;
 
-            liEl.appendChild(thumbnailEl);
-            liEl.appendChild(titleEl);
-            liEl.appendChild(descEl);
-            liEl.appendChild(lengthEl);
+            cardBodyEl.appendChild(h3El);
+            cardBodyEl.appendChild(descEl);
+            cardBodyEl.appendChild(lengEl);
 
-            youtubeEl.appendChild(liEl);
+            divParentEl.appendChild(cardBodyEl);
+
+            var footerEl = document.createElement('div');
+            footerEl.classList.add('uk-card-footer');
+
+            var linkEl = document.createElement('a');
+            linkEl.classList.add('uk-button', 'uk-button-text');
+            var url = 'https://www.youtube.com/watch?v=' + response.videos[i].video_id;
+            linkEl.setAttribute('href', url);
+            linkEl.setAttribute('target', '_blank');
+            linkEl.textContent = 'Watch Video';
+
+            footerEl.appendChild(linkEl);
+
+            divParentEl.appendChild(footerEl);
+
+            youtubeEl.appendChild(divParentEl);
+
+
         }
     });
 
 }
 
 function history() {
-      var temp = localStorage.getItem('recentSearches');
-      // if localStorage does exist print buttons
-      if (temp != null) {
+    var temp = localStorage.getItem('recentSearches');
+    // if localStorage does exist print buttons
+    if (temp != null) {
         recentSearches = JSON.parse(temp);
         for (var i = 0; i < recentSearches.length; i++) {
             var liEl = document.createElement("li");
             liEl.textContent = recentSearches[i].player;
             historyEl.appendChild(liEl);
         }
-          
 
-      }
+
     }
-    history();
-  
+}
+history();

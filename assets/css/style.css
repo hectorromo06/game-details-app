@@ -5,10 +5,16 @@ nav {
 
 nav div h1 {
     margin-bottom: 0px;
+    padding-left: 15px;
     color: white;
 }
 
 section {
     width: 100%;
     margin: 0 auto;
+}
+
+#search form {
+    margin: 0 auto;
+    margin-top: 20%;
 }
