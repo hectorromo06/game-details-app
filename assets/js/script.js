@@ -69,7 +69,6 @@ function apiCall(playerName) {
         var height = response.search_player_all.queryResults.row.height_feet + "' " + response.search_player_all.queryResults.row.height_inches;
         var weight = response.search_player_all.queryResults.row.weight;
         var birthday = response.search_player_all.queryResults.row.birth_date.slice(0, 10);
-        // var jerseyNum = response.
 
         playerEl.textContent = player;
         teamEl.textContent = teamName;
