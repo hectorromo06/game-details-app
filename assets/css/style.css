@@ -1,0 +1,44 @@
+nav {
+    background-color: rgb(120, 159, 129);
+    margin: 0 auto;
+} 
+
+nav div h1 {
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 48px;
+    margin-bottom: 0px;
+    padding-left: 15px;
+    color: white;
+}
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 20px;
+}
+
+li .uk-active {
+    font-size: 32px;
+    font-weight: bold;
+
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+#search form {
+    margin: 0 auto;
+    margin-top: 20%;
+}
+
+#player-image {
+    max-width: 20%;
+    height: 20%;
+}
