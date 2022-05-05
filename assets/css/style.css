@@ -29,19 +29,16 @@ section {
     margin: 0 auto;
 }
 
+ul {
+    list-style: none;
+}
+
 #search form {
     margin: 0 auto;
     margin-top: 20%;
 }
 
-a {
-    font-size: 32px;
-    font-weight: bold;
-}
-
-#history {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.5;
-    padding: 2rem;
+#player-image {
+    max-width: 20%;
+    height: 20%;
 }

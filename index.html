@@ -33,15 +33,23 @@
       </form>
     </div>
 
-    <div id="results" class="uk-align-center" style="visibility: hidden;">
-      <div id="player-stats">
+    <div id="results" style="visibility: hidden;">
+      <div id="player-stats uk-flex uk-flex-center uk-align-center">
         <h2 id="player"></h2>
-        <ul>
-          <li>Team: <span id="team"></span></li>
-          <li>Height: <span id="height"></span> ft</li>
-          <li>Weight: <span id="weight"></span> lbs</li>
-          <li>Birthday: <span id="birthdate"></span></li>
-        </ul>
+        <div class="uk-flex-inline">
+          <img id="player-image">
+          <ul>
+            <li>Team: <span id="team"></span></li>
+            <li>Height: <span id="height"></span> ft</li>
+            <li>Weight: <span id="weight"></span> lbs</li>
+            <li>Birthday: <span id="birthdate"></span></li>
+            <li>Birth City: <span id="birth-city"></span></li>
+            <li>League: <span id="league"></span></li>
+            <li>Position: <span id="position"></span></li>
+            <li>Batting side: <span id="batting"></span></li>
+            <li>Throwing arm: <span id="throwing"></span></li>
+          </ul>
+        </div>
       </div>
 
       <div id="youtube-results" class="uk-align-center">

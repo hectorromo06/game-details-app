@@ -5,6 +5,11 @@ var teamEl = document.querySelector('#team');
 var heightEl = document.querySelector('#height');
 var weightEl = document.querySelector('#weight');
 var birthdayEl = document.querySelector('#birthdate');
+var birthCityEl = document.querySelector('#birth-city');
+var leagueEl = document.querySelector('#league');
+var positionEl = document.querySelector('#position');
+var battingEl = document.querySelector('#batting');
+var throwingEl = document.querySelector('#throwing')
 var youtubeEl = document.querySelector('#youtube-vids');
 var historyEl = document.querySelector('#history');
 var resultsEl = document.querySelector('#results');
@@ -67,15 +72,47 @@ function apiCall(playerName) {
         var height = response.search_player_all.queryResults.row.height_feet + "' " + response.search_player_all.queryResults.row.height_inches;
         var weight = response.search_player_all.queryResults.row.weight;
         var birthday = response.search_player_all.queryResults.row.birth_date.slice(0, 10);
+        var birthCity = response.search_player_all.queryResults.row.birth_city;
+        var league = response.search_player_all.queryResults.row.league;
+        var position = response.search_player_all.queryResults.row.position;
+        var batting = response.search_player_all.queryResults.row.bats;
+        var throwing = response.search_player_all.queryResults.row.throws;
 
         playerEl.textContent = player;
         teamEl.textContent = teamName;
         heightEl.textContent = height;
         weightEl.textContent = weight;
         birthdayEl.textContent = birthday;
+        birthCityEl.textContent = birthCity;
+        leagueEl.textContent = league;
+        positionEl.textContent = position;
+        battingEl.textContent = batting;
+        throwingEl.textContent = throwing;
 
         teamName = encodeURIComponent(teamName.trim());
+        picture(playerName);
         youtubeSearch(teamName);
+    });
+}
+
+function picture(playerName) {
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://bing-image-search1.p.rapidapi.com/images/search?q=" + playerName + 'current photo',
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
+            "X-RapidAPI-Key": "7d3981e8bemsh702d01ad1635c18p10dd1fjsn83e5763a1078"
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        var playerImageEl = document.querySelector('#player-image');
+        playerImageEl.setAttribute('src', response.value[0].contentUrl);
+        playerImageEl.setAttribute('alt', playerName);
+
+        console.log(response);
     });
 }
 
