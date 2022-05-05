@@ -166,8 +166,8 @@ function history() {
             liEl.textContent = recentSearches[i].player;
             historyEl.appendChild(liEl);
         }
-
-
     }
+    
+
 }
 history();
