@@ -165,7 +165,9 @@ function history() {
             var liEl = document.createElement("li");
             liEl.textContent = recentSearches[i].player;
             historyEl.appendChild(liEl);
+        
         }
+        
     }
     
 
