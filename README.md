@@ -1,4 +1,4 @@
-# Game Details App
+# Player Details App
 
 ## Authors
 - Analiza Boehning
