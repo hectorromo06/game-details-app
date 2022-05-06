@@ -14,6 +14,8 @@ var youtubeEl = document.querySelector('#youtube-vids');
 var historyEl = document.querySelector('#history');
 var resultsEl = document.querySelector('#results');
 
+var recentSearches = [];
+
 $('#submit-btn').click(function (event) {
     event.preventDefault();
 
@@ -202,11 +204,11 @@ function history() {
             var liEl = document.createElement("li");
             liEl.textContent = recentSearches[i].player;
             historyEl.appendChild(liEl);
-        
+
         }
-        
+
     }
-    
+
 
 }
 history();
