@@ -10,18 +10,25 @@ nav div h1 {
     padding-left: 15px;
     color: white;
 }
-ul {
-    list-style: none;
-}
-
-li {
-    font-size: 20px;
-}
 
 li .uk-active {
     font-size: 32px;
     font-weight: bold;
+    background-color: rgb(80, 107, 87);
+}
 
+ul { 
+  list-style-type: none;
+}
+
+.stats {
+    display: list-item;
+    font-size: 20px;
+    color: black;
+    border: 1px solid black;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    display: inline-block;
 }
 
 section {

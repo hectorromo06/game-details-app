@@ -11,14 +11,6 @@ var resultsEl = document.querySelector('#results');
 
 var recentSearches = [];
 
-// // Create a MediaQueryList object
-const mmObj = window.matchMedia("(max-width: 700px)")
-
-
-
-// Add the match function as a listener for state changes:
-// mmObj.addListener(myFunction);
-
 $('#submit-btn').click(function (event) {
     event.preventDefault();
 
@@ -184,6 +176,5 @@ function history() {
     
 
 }
-// Call the match function at run time:
-myFunction(mmObj);
+
 history();
