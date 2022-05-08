@@ -1,6 +1,7 @@
 body {
     background-color: rgba(158, 133, 95, 0.699);
 }
+
 nav {
     background-color:rgb(99, 136, 101);
     margin: 0 auto;
@@ -40,10 +41,12 @@ ul {
     padding: 5px;
     
 }
+
 #player-name {
     background-color: rgb(252, 252, 252);
     box-shadow: 3px 3px 20px rgb(75, 52, 30);
 }
+
 section {
     width: 100%;
     margin: 0 auto;
@@ -57,8 +60,8 @@ section {
 h2 {
   font-family: Playfair Display;
   font-weight: bold;
-    line-height: 1.5px;
-    color: rgba(0, 0, 0, 0.836);
+  line-height: 1.5px;
+  color: rgba(0, 0, 0, 0.836);
 }
 
 #player {

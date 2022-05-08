@@ -177,4 +177,12 @@ function history() {
 
 }
 
+var clearHistory = localStorage.removeItem("recentSearches")
+
+$('#clear-btn').click(function (event) {
+    event.preventDefault();
+    clearHistory();
+})
+
+
 history();
