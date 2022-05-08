@@ -86,3 +86,61 @@ a {
 #youtube-results {
     margin: 20px;
 }
+
+.footer {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px 30px 20px 30px;
+    color: #2f2f2f;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer__addr {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+    display: inline-block
+
+}
+
+.footer__logo {
+    font-family: Playfair Display;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.legal {
+    float: right;
+    display: inline;
+    color: #999;
+}
+
+.legal__links {
+    display: flex;
+    float: right;
+    align-items: center;
+}
+
+.heart {
+    color: #2f2f2f;
+}
