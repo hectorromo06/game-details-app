@@ -1,5 +1,8 @@
+body {
+    background-color: rgba(158, 133, 95, 0.699);
+}
 nav {
-    background-color: rgb(120, 159, 129);
+    background-color:rgb(99, 136, 101);
     margin: 0 auto;
 } 
 
@@ -14,7 +17,8 @@ nav div h1 {
 li .uk-active {
     font-size: 32px;
     font-weight: bold;
-    background-color: rgb(80, 107, 87);
+    background-color:rgb(63, 63, 63);
+    
 }
 
 ul { 
@@ -24,16 +28,22 @@ ul {
 .stats {
     display: list-item;
     font-size: 20px;
-    color: black;
-    border: 1px solid black;
+    background-color: rgba(158, 133, 95, 0.836);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 3px 10px black;
+    border: 1px solid rgb(63, 63, 63);
     padding-inline-start: 10px;
     padding-inline-end: 10px;
     display:block;
     width:300px; /* adjust if needed */
     height:30px; /* adjust if needed */
     padding: 5px;
+    
 }
-
+#player-name {
+    background-color: rgb(252, 252, 252);
+    box-shadow: 3px 3px 20px rgb(75, 52, 30);
+}
 section {
     width: 100%;
     margin: 0 auto;
@@ -42,6 +52,20 @@ section {
 #search form {
     margin: 0 auto;
     margin-top: 20%;
+}
+
+h2 {
+  font-family: Playfair Display;
+  font-weight: bold;
+    line-height: 1.5px;
+    color: rgba(0, 0, 0, 0.836);
+}
+
+#player {
+    font-family: Playfair Display;
+    font-weight: bold;
+    line-height: 1.5px;
+    color: rgba(0, 0, 0, 0.836);
 }
 
 a {
