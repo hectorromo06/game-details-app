@@ -1,5 +1,9 @@
+body {
+    background-color: rgba(158, 133, 95, 0.699);
+}
+
 nav {
-    background-color: rgb(120, 159, 129);
+    background-color:rgb(99, 136, 101);
     margin: 0 auto;
 } 
 
@@ -10,18 +14,37 @@ nav div h1 {
     padding-left: 15px;
     color: white;
 }
-ul {
-    list-style: none;
-}
-
-li {
-    font-size: 20px;
-}
 
 li .uk-active {
     font-size: 32px;
     font-weight: bold;
+    background-color:rgb(63, 63, 63);
+    
+}
 
+ul { 
+  list-style-type: none;
+}
+
+.stats {
+    display: list-item;
+    font-size: 20px;
+    background-color: rgba(158, 133, 95, 0.836);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 3px 10px black;
+    border: 1px solid rgb(63, 63, 63);
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    display:block;
+    width:300px; /* adjust if needed */
+    height:30px; /* adjust if needed */
+    padding: 5px;
+    
+}
+
+#player-name {
+    background-color: rgb(252, 252, 252);
+    box-shadow: 3px 3px 20px rgb(75, 52, 30);
 }
 
 section {
@@ -41,4 +64,93 @@ ul {
 #player-image {
     max-width: 20%;
     height: 20%;
+
+}
+
+h2 {
+  font-family: Playfair Display;
+  font-weight: bold;
+  line-height: 1.5px;
+  color: rgba(0, 0, 0, 0.836);
+}
+
+#player {
+    font-family: Playfair Display;
+    font-weight: bold;
+    line-height: 1.5px;
+    color: rgba(0, 0, 0, 0.836);
+}
+
+a {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#history {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 2rem;
+}
+
+#youtube-results {
+    margin: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px 30px 20px 30px;
+    color: #2f2f2f;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer__addr {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+    display: inline-block
+
+}
+
+.footer__logo {
+    font-family: Playfair Display;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.legal {
+    float: right;
+    display: inline;
+    color: #999;
+}
+
+.legal__links {
+    display: flex;
+    float: right;
+    align-items: center;
+}
+
+.heart {
+    color: #2f2f2f;
 }
