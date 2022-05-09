@@ -15,6 +15,7 @@ var historyEl = document.querySelector('#history');
 var resultsEl = document.querySelector('#results');
 var noResultsEl = document.querySelector('#no-results');
 
+
 var recentSearches = [];
 
 $('#submit-btn').click(function (event) {
@@ -47,6 +48,8 @@ $('#submit-btn').click(function (event) {
         recentSearches.push(occurence);
         localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
     } else {}
+
+
 
     apiCall(playerName);
 
@@ -103,6 +106,7 @@ function apiCall(playerName) {
             picture(playerName);
             youtubeSearch(teamName);
         } else {
+            removeAllChildNodes(youtubeEl);
             noResultsEl.style.visibility = 'visible';
             resultsEl.style.visibility = 'hidden';
         }
@@ -145,6 +149,14 @@ function youtubeSearch(teamName) {
 
     $.ajax(settings).done(function (response) {
         console.log(response);
+
+        removeAllChildNodes(youtubeEl);
+
+        // console.log(youtubeEl.firstElementChild);
+
+        // if (youtubeEl.firstElementChild != null) {
+        //     youtubeEl.remove(youtubeEl.firstElementChild);
+        // }
 
         for (var i = 0; i < response.videos.length; i++) {
 
@@ -202,7 +214,6 @@ function youtubeSearch(teamName) {
 
             youtubeEl.appendChild(divParentEl);
 
-
         }
     });
 
@@ -225,6 +236,11 @@ function history() {
 
 }
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
 $('#clear-btn').click(function (event) {
     event.preventDefault();
