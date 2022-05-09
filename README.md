@@ -4,6 +4,9 @@ This site allows baseball fans to search up their favorite player and retrieve s
 # Screenshot
 ![image](./assets/images/screenshot.png)
 
+# Live Application
+https://hectorromo06.github.io/player-details-app/
+
 ## Technologies Used
 * HTML
 * CSS
