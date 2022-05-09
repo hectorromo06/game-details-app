@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/css/uikit.min.css" />
   <title>Player Details App</title>
   <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display&family=Quando&family=Radio+Canada&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -27,6 +32,7 @@
   <section class="uk-flex uk-flex-column">
     <div id="search" class="uk-align-center">
       <form class="uk-form-horizontal uk-search uk-search-default">
+        <p>Our API is limited to current players</p>
         <label for="player-name" class="uk-form-label">Search:</label>
         <input type="search" placeholder="Player Name" name="player-name" id="player-name" class="uk-search-input" />
         <button type="submit" class="uk-button uk-button-text" id="submit-btn">Search</button>
@@ -53,13 +59,27 @@
       </div>
 
       <div id="youtube-results" class="uk-align-center">
-        <h2>Team Youtube videos</h2>
+        <h2 class="">Team Youtube videos</h2>
         <div id="youtube-vids">
         </div>
       </div>
     </div>
 
+    <div id="no-results" style="visibility: hidden;">
+      <h2>No Player Found</h2>
+    </div>
+
   </section>
+  <footer class="footer">
+    <div class="footer__addr">
+      <h1 class="footer__logo">Player Details</h1>
+
+      <h2>See More on our</h2>
+      <a class="footer__btn" href="https://github.com/hectorromo06/player-details-app/projects/1">GitHub</a>
+
+    </div>
+  </footer>
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
