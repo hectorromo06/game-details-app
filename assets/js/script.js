@@ -13,13 +13,13 @@ var throwingEl = document.querySelector('#throwing')
 var youtubeEl = document.querySelector('#youtube-vids');
 var historyEl = document.querySelector('#history');
 var resultsEl = document.querySelector('#results');
+var noResultsEl = document.querySelector('#no-results');
+
 
 var recentSearches = [];
 
 $('#submit-btn').click(function (event) {
     event.preventDefault();
-
-    resultsEl.style.visibility = 'visible';
 
     var playerName = event.target.parentElement[0].value;
 
@@ -49,7 +49,11 @@ $('#submit-btn').click(function (event) {
         localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
     } else {}
 
+
+
     apiCall(playerName);
+
+
 });
 
 function apiCall(playerName) {
@@ -69,31 +73,44 @@ function apiCall(playerName) {
     $.ajax(settings).done(function (response) {
         console.log(response);
 
-        var player = response.search_player_all.queryResults.row.name_display_first_last;
-        var teamName = response.search_player_all.queryResults.row.team_full;
-        var height = response.search_player_all.queryResults.row.height_feet + "' " + response.search_player_all.queryResults.row.height_inches;
-        var weight = response.search_player_all.queryResults.row.weight;
-        var birthday = response.search_player_all.queryResults.row.birth_date.slice(0, 10);
-        var birthCity = response.search_player_all.queryResults.row.birth_city;
-        var league = response.search_player_all.queryResults.row.league;
-        var position = response.search_player_all.queryResults.row.position;
-        var batting = response.search_player_all.queryResults.row.bats;
-        var throwing = response.search_player_all.queryResults.row.throws;
+        const results = response.search_player_all.queryResults;
 
-        playerEl.textContent = player;
-        teamEl.textContent = teamName;
-        heightEl.textContent = height;
-        weightEl.textContent = weight;
-        birthdayEl.textContent = birthday;
-        birthCityEl.textContent = birthCity;
-        leagueEl.textContent = league;
-        positionEl.textContent = position;
-        battingEl.textContent = batting;
-        throwingEl.textContent = throwing;
+        if (results.totalSize != 0) {
+            noResultsEl.style.visibility = 'hidden';
+            resultsEl.style.visibility = 'visible';
 
-        teamName = encodeURIComponent(teamName.trim());
-        picture(playerName);
-        youtubeSearch(teamName);
+
+            var player = results.row.name_display_first_last;
+            var teamName = results.row.team_full;
+            var height = results.row.height_feet + "' " + results.row.height_inches;
+            var weight = results.row.weight;
+            var birthday = results.row.birth_date.slice(0, 10);
+            var birthCity = results.row.birth_city;
+            var league = results.row.league;
+            var position = results.row.position;
+            var batting = results.row.bats;
+            var throwing = results.row.throws;
+
+            playerEl.textContent = player;
+            teamEl.textContent = teamName;
+            heightEl.textContent = height;
+            weightEl.textContent = weight;
+            birthdayEl.textContent = birthday;
+            birthCityEl.textContent = birthCity;
+            leagueEl.textContent = league;
+            positionEl.textContent = position;
+            battingEl.textContent = batting;
+            throwingEl.textContent = throwing;
+
+            teamName = encodeURIComponent(teamName.trim());
+            picture(playerName);
+            youtubeSearch(teamName);
+        } else {
+            removeAllChildNodes(youtubeEl);
+            noResultsEl.style.visibility = 'visible';
+            resultsEl.style.visibility = 'hidden';
+        }
+
     });
 }
 
@@ -132,6 +149,14 @@ function youtubeSearch(teamName) {
 
     $.ajax(settings).done(function (response) {
         console.log(response);
+
+        removeAllChildNodes(youtubeEl);
+
+        // console.log(youtubeEl.firstElementChild);
+
+        // if (youtubeEl.firstElementChild != null) {
+        //     youtubeEl.remove(youtubeEl.firstElementChild);
+        // }
 
         for (var i = 0; i < response.videos.length; i++) {
 
@@ -189,7 +214,6 @@ function youtubeSearch(teamName) {
 
             youtubeEl.appendChild(divParentEl);
 
-
         }
     });
 
@@ -211,4 +235,18 @@ function history() {
 
 
 }
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+$('#clear-btn').click(function (event) {
+    event.preventDefault();
+    localStorage.clear();
+    location.reload();
+})
+
+
 history();
