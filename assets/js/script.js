@@ -66,7 +66,7 @@ function apiCall(playerName) {
         "method": "GET",
         "headers": {
             "X-RapidAPI-Host": "mlb-data.p.rapidapi.com",
-            "X-RapidAPI-Key": "7d3981e8bemsh702d01ad1635c18p10dd1fjsn83e5763a1078"
+            "X-RapidAPI-Key": "92d5a261cbmsh2670c43e09e3d07p15f894jsn89c9d2e082a5"
         }
     };
 
@@ -122,7 +122,7 @@ function picture(playerName) {
         "method": "GET",
         "headers": {
             "X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
-            "X-RapidAPI-Key": "7d3981e8bemsh702d01ad1635c18p10dd1fjsn83e5763a1078"
+            "X-RapidAPI-Key": "92d5a261cbmsh2670c43e09e3d07p15f894jsn89c9d2e082a5"
         }
     };
 
@@ -143,7 +143,7 @@ function youtubeSearch(teamName) {
         "method": "GET",
         "headers": {
             "X-RapidAPI-Host": "youtube-search6.p.rapidapi.com",
-            "X-RapidAPI-Key": "7d3981e8bemsh702d01ad1635c18p10dd1fjsn83e5763a1078"
+            "X-RapidAPI-Key": "92d5a261cbmsh2670c43e09e3d07p15f894jsn89c9d2e082a5"
         }
     };
 
